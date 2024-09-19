@@ -1,11 +1,11 @@
 #
 # Append Nerves Specific environment variables to the SDK
 #
-FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
 NERVES_SYSTEM_ROOTFS_DEV ?= "elixir-embedded-image-minimal"
 
-do_install_append() {
+do_install:append() {
     # create Symbolic Link
     ln -s toolchain/sysroots/${REAL_MULTIMACH_TARGET_SYS} ${D}/${SDKPATH}/staging
 
